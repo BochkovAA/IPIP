@@ -46,20 +46,7 @@ do {
             <div id="task2">
                 <h3>Практическая 2, задание 3</h3>
                 <button onclick="runTask2()">Выполнить задачу</button>
-                <pre>
-<code>
-let array = [5, 10, 15, 20, 25, 30, 35, 40];
-let container = document.getElementById('array-container');
-
-array.forEach((item, index) => {
-    let div = document.createElement('div');
-    div.className = 'item';
-    div.textContent = `Элемент ${index + 1}: ${item}`;
-    div.setAttribute('data-length', `Длина массива: ${array.length}`);
-    container.appendChild(div);
-});
-</code>
-                </pre>
+                <div id="array-container"></div>
             </div>
         </section>
 
