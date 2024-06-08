@@ -40,3 +40,4 @@ switch (zodiacSign) {
     default:
         alert('Знак зодиака не распознан');
 }
+
