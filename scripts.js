@@ -39,7 +39,10 @@ function startQuiz() {
     let quizResult = "Результат: 8 из 10 верных ответов"; // Пример результата теста
     let quizResultDisplay = document.getElementById('quizResult');
     quizResultDisplay.textContent = quizResult;
+}
 
+// Функция для показа заставки с приветствием
+function showGreeting() {
     let userName = localStorage.getItem('userName');
     if (userName) {
         document.getElementById('userName').textContent = userName;
