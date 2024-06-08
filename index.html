@@ -64,20 +64,39 @@ do {
             <h3>Задача 3 из второй практической</h3>
             <p>Узнайте длину вашего массива и выведите ее значение при наведении на любой элемент:</p>
             <pre><code>
-                let array = [5, 10, 15, 20, 25, 30, 35, 40];
-                let container = document.getElementById('array-container');
-                array.forEach((item, index) => {
-                let div = document.createElement('div');
-                div.className = 'array-item';
-                div.textContent = `Элемент ${index + 1}: ${item}`;
-                div.setAttribute('data-length', `Длина массива: ${array.length}`);
-                container.appendChild(div);
-                });
-                
-                function runTask2() {
-                let arrayLength = array.length;
-                alert(`Длина массива: ${arrayLength}`);
-                }
+                <!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Длина массива</title>
+    <style>
+        .item:hover::after {
+            content: attr(data-length);
+            display: inline-block;
+            margin-left: 10px;
+            font-weight: bold;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="array-container">
+        <!-- Элементы массива будут добавлены сюда -->
+    </div>
+    <script>
+        let array = [5, 10, 15, 20, 25, 30, 35, 40];
+        let container = document.getElementById('array-container');
+
+        array.forEach((item, index) => {
+            let div = document.createElement('div');
+            div.className = 'item';
+            div.textContent = `Элемент ${index + 1}: ${item}`;
+            div.setAttribute('data-length', `Длина массива: ${array.length}`);
+            container.appendChild(div);
+        });
+    </script>
+</body>
+</html>
     </code></pre>
     <button onclick="runTask2()">Запустить задачу</button>
         </div>
