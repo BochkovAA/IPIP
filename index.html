@@ -61,27 +61,27 @@ do {
             <button onclick="runTask1()">Запустить задачу</button>
         </div>
         <div id="task2-demo" class="task-demo">
-    <h3>Задача 3 из второй практической</h3>
-    <p>Узнайте длину вашего массива и выведите ее значение при наведении на любой элемент:</p>
-    <pre><code>
-        let array = [5, 10, 15, 20, 25, 30, 35, 40];
-        let container = document.getElementById('array-container');
-
-        array.forEach((item, index) => {
-            let div = document.createElement('div');
-            div.className = 'array-item';
-            div.textContent = `Элемент ${index + 1}: ${item}`;
-            div.setAttribute('data-length', `Длина массива: ${array.length}`);
-            container.appendChild(div);
-        });
-
-        function runTask2() {
-            let arrayLength = array.length;
-            alert(`Длина массива: ${arrayLength}`);
-        }
+            <h3>Задача 3 из второй практической</h3>
+            <p>Узнайте длину вашего массива и выведите ее значение при наведении на любой элемент:</p>
+            <pre><code>
+                let array = [5, 10, 15, 20, 25, 30, 35, 40];
+                let container = document.getElementById('array-container');
+                array.forEach((item, index) => {
+                let div = document.createElement('div');
+                div.className = 'array-item';
+                div.textContent = `Элемент ${index + 1}: ${item}`;
+                div.setAttribute('data-length', `Длина массива: ${array.length}`);
+                container.appendChild(div);
+                });
+                
+                function runTask2() {
+                let arrayLength = array.length;
+                alert(`Длина массива: ${arrayLength}`);
+                }
     </code></pre>
     <button onclick="runTask2()">Запустить задачу</button>
         </div>
+
 
     </section>
 
