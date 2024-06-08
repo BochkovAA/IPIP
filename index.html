@@ -2,157 +2,56 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Учебный проект: JavaScript для начинающих</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Изучение JavaScript</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Стили для элементов массива */
-        .array-item:hover::after {
-            content: attr(data-length);
-            display: inline-block;
-            margin-left: 10px;
-            font-weight: bold;
-            color: red;
-        }
-    </style>
 </head>
 <body>
     <header>
-        <h1>JavaScript для начинающих</h1>
-        <nav>
-            <button id="show-task1">Задача 4 из первой практической</button>
-            <button id="show-task2">Задача 3 из второй практической</button>
-            <button id="show-test">Тест по JavaScript</button>
-            <button id="show-welcome-screen">Приветствие</button>
-        </nav>
+        <h1>Добро пожаловать!</h1>
+        <p>Мы рады приветствовать вас на нашем сайте, посвященном изучению JavaScript.</p>
+        <p>Давайте начнем с того, чтобы вы представились:</p>
+        <button onclick="saveName()">Представиться</button>
     </header>
 
-    <section id="info">
-        <h2>Что такое JavaScript?</h2>
-        <p>JavaScript — это язык программирования, используемый для создания интерактивных элементов на веб-страницах. Он позволяет оживлять страницы, добавляя динамические возможности, такие как обновление контента, анимации и многое другое.</p>
-        <h3>Для чего используется JavaScript?</h3>
-        <ul>
-            <li>Создание интерактивных элементов на веб-страницах.</li>
-            <li>Разработка веб-приложений и игр.</li>
-            <li>Работа с браузерным API, например, для создания всплывающих окон или обработки событий пользователя.</li>
-            <li>Обмен данными с сервером без перезагрузки страницы (AJAX).</li>
-        </ul>
-        <h3>Когда JavaScript не пригодится?</h3>
-        <p>JavaScript не используется для создания статических страниц, а также для задач, требующих высокой производительности на уровне системы, таких как разработка операционных систем или работа с аппаратным обеспечением. Для таких задач лучше подходят языки, как C++ или Rust.</p>
-    </section>
+    <main>
+        <section id="about-js">
+            <h2>JavaScript: что это и зачем?</h2>
+            <p>JavaScript (JS) - это язык программирования, который используется для создания интерактивных веб-сайтов. Он дает возможность делать сайты динамическими, добавляя различные функции и эффекты, которые делают взаимодействие с сайтом более удобным и интересным для пользователя.</p>
+            <p>Вы можете использовать JavaScript для создания игр, форм для отправки данных, анимаций, реакции на действия пользователя и многое другое.</p>
+            <p>Но иногда JS может быть неэффективен для определенных задач, таких как обработка больших объемов данных или высоконагруженные вычисления, в этом случае могут быть предпочтительнее другие языки программирования, такие как Python или Java.</p>
+        </section>
 
-    <section id="tasks">
-        <h2>Демонстрация задач</h2>
-        <div id="task1-demo" class="task-demo">
-            <h3>Задача 4 из первой практической</h3>
-            <p>Запросить у пользователя число больше 5 и выдать сообщение:</p>
-            <pre><code> 
-let number;
-do {
-    number = prompt('Введите любое число больше 5:');
-    if (number === null) {
-        alert('Вы отменили ввод');
-        break;
-    } else if (!isNaN(number) && +number > 5) {
-        alert('Поздравляем! Вы ввели число больше 5.');
-    } else {
-        alert('Ошибка! Введите число больше 5.');
-    }
-} while (number !== null && (+number <= 5 || isNaN(number)));</code></pre>
-            <button onclick="runTask1()">Запустить задачу</button>
+        <section id="demo">
+            <h2>Демонстрация</h2>
+            <div class="demo-item">
+                <h3>Практическая 2, задание 3</h3>
+                <button onclick="showTaskOne()">Показать задание</button>
+                <div id="taskOne"></div>
+            </div>
+            <div class="demo-item">
+                <h3>Практическая 1, задание 4</h3>
+                <button onclick="showTaskTwo()">Показать задание</button>
+                <div id="taskTwo"></div>
+            </div>
+        </section>
+
+        <section id="test">
+            <h2>Тест по JavaScript</h2>
+            <button onclick="startTest()">Начать тест</button>
+            <div id="testResults"></div>
+        </section>
+
+        <button id="fullscreenBtn" onclick="toggleFullscreen()">Заставка на весь экран</button>
+        <div id="fullscreenOverlay">
+            <div class="overlay-content">
+                <p>Сегодняшняя дата: <span id="currentDate"></span></p>
+                <p>Привет, <span id="userName"></span>!</p>
+                <p>Нажмите где угодно, чтобы закрыть заставку.</p>
+            </div>
         </div>
-        <div id="task2-demo" class="task-demo">
-            <h3>Задача 3 из второй практической</h3>
-            <p>Узнайте длину вашего массива и выведите ее значение при наведении на любой элемент:</p>
-            <pre><code>
-                <!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Длина массива</title>
-    <style>
-        .item:hover::after {
-            content: attr(data-length);
-            display: inline-block;
-            margin-left: 10px;
-            font-weight: bold;
-            color: red;
-        }
-    </style>
-</head>
-<body>
-    <div id="array-container">
-        <!-- Элементы массива будут добавлены сюда -->
-    </div>
-    <script>
-        let array = [5, 10, 15, 20, 25, 30, 35, 40];
-        let container = document.getElementById('array-container');
-
-        array.forEach((item, index) => {
-            let div = document.createElement('div');
-            div.className = 'item';
-            div.textContent = `Элемент ${index + 1}: ${item}`;
-            div.setAttribute('data-length', `Длина массива: ${array.length}`);
-            container.appendChild(div);
-        });
-    </script>
-</body>
-</html>
-    </code></pre>
-    <button onclick="runTask2()">Запустить задачу</button>
-        </div>
-
-
-    </section>
-
-    <section id="test">
-        <h2>Тест по JavaScript</h2>
-        <div id="quiz-container"></div>
-        <button id="start-quiz">Начать тест</button>
-        <div id="quiz-result"></div>
-    </section>
-
-    <div id="welcome-screen" class="overlay">
-        <div class="overlay-content">
-            <h1 id="welcome-message"></h1>
-            <p id="current-date"></p>
-        </div>
-    </div>
+    </main>
 
     <script src="scripts.js"></script>
-
-    <script>
-        let array = [5, 10, 15, 20, 25, 30, 35, 40];
-        let container = document.getElementById('array-container');
-
-        array.forEach((item, index) => {
-            let div = document.createElement('div');
-            div.className = 'array-item';
-            div.textContent = `Элемент ${index + 1}: ${item}`;
-            div.setAttribute('data-length', `Длина массива: ${array.length}`);
-            container.appendChild(div);
-        });
-
-        function runTask1() {
-            // Код для выполнения задачи 1 из первой практической работы
-            let number;
-            do {
-                number = prompt('Введите любое число больше 5:');
-                if (number === null) {
-                    alert('Вы отменили ввод');
-                    break;
-                } else if (!isNaN(number) && +number > 5) {
-                    alert('Поздравляем! Вы ввели число больше 5.');
-                } else {
-                    alert('Ошибка! Введите число больше 5.');
-                }
-            } while (number !== null && (+number <= 5 || isNaN(number)));
-        }
-
-        function runTask2() {
-            // Код для выполнения задачи 2 из второй практической работы
-            let arrayLength = array.length;
-            alert(`Длина массива: ${arrayLength}`);
-        }
-    </script>
 </body>
 </html>
