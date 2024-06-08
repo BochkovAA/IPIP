@@ -1,32 +1,31 @@
-// Функция запуска задачи
-function runTask(taskNumber) {
-    if (taskNumber === 1) {
-        // Задание 1
-        let number;
-        do {
-            number = prompt('Введите любое число больше 5:');
-            if (number === null) {
-                alert('Вы отменили ввод');
-                break;
-            } else if (!isNaN(number) && +number > 5) {
-                alert('Поздравляем! Вы ввели число больше 5.');
-            } else {
-                alert('Ошибка! Введите число больше 5.');
-            }
-        } while (number !== null && (+number <= 5 || isNaN(number)));
-    } else if (taskNumber === 2) {
-        // Задание 2
-        let array = [5, 10, 15, 20, 25, 30, 35, 40];
-        let container = document.getElementById('array-container');
+// Функция запуска задачи 1
+function runTask1() {
+    let number;
+    do {
+        number = prompt('Введите любое число больше 5:');
+        if (number === null) {  
+            alert('Вы отменили ввод');
+            break;
+        } else if (!isNaN(number) && +number > 5) {
+            alert('Поздравляем! Вы ввели число больше 5.');
+        } else {
+            alert('Ошибка! Введите число больше 5.');
+        }
+    } while (number !== null && (+number <= 5 || isNaN(number)));
+}
 
-        array.forEach((item, index) => {
-            let div = document.createElement('div');
-            div.className = 'item';
-            div.textContent = `Элемент ${index + 1}: ${item}`;
-            div.setAttribute('data-length', `Длина массива: ${array.length}`);
-            container.appendChild(div);
-        });
-    }
+// Функция запуска задачи 2
+function runTask2() {
+    let array = [5, 10, 15, 20, 25, 30, 35, 40];
+    let container = document.getElementById('array-container');
+
+    array.forEach((item, index) => {
+        let div = document.createElement('div');
+        div.className = 'item';
+        div.textContent = `Элемент ${index + 1}: ${item}`;
+        div.setAttribute('data-length', `Длина массива: ${array.length}`);
+        container.appendChild(div);
+    });
 }
 
 // Функция запуска теста
