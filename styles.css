@@ -4,67 +4,67 @@ body {
     padding: 0;
 }
 
-header {
+header, footer {
     background-color: #f0f0f0;
     padding: 20px;
-    text-align: center;
 }
 
 main {
     padding: 20px;
 }
 
-h1 {
-    margin: 0 0 10px 0;
+h1, h2 {
+    color: #333;
 }
 
 button {
-    padding: 10px 20px;
     background-color: #007bff;
     color: #fff;
+    padding: 10px 20px;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
+    margin-right: 10px;
 }
 
 button:hover {
     background-color: #0056b3;
 }
 
-section {
-    margin-bottom: 30px;
+#quiz-form {
+    margin-top: 20px;
 }
 
-.demo-item {
-    margin-bottom: 20px;
+#quiz-form label {
+    display: block;
+    margin-bottom: 10px;
 }
 
-#fullscreenOverlay {
-    display: none;
+#quiz-form input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+#quiz-results {
+    margin-top: 20px;
+}
+
+.fullscreen-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.8);
-    z-index: 999;
+    display: flex;
     justify-content: center;
     align-items: center;
-}
-
-#fullscreenOverlay.active {
-    display: flex;
+    color: #fff;
+    font-size: 24px;
 }
 
 .overlay-content {
     text-align: center;
-    color: #fff;
 }
 
-.overlay-content p {
-    margin: 10px 0;
-}
-
-#testResults p {
-    margin-bottom: 5px;
+.overlay-content button {
+    margin-top: 20px;
 }
