@@ -9,49 +9,33 @@
 <body>
     <header>
         <h1>Добро пожаловать!</h1>
-        <p>Мы рады приветствовать вас на нашем сайте, посвященном изучению JavaScript.</p>
-        <p>Давайте начнем с того, чтобы вы представились:</p>
-        <button onclick="saveName()">Представиться</button>
+        <p>Для начинающих изучать JavaScript</p>
     </header>
-
     <main>
         <section id="about-js">
-            <h2>JavaScript: что это и зачем?</h2>
-            <p>JavaScript (JS) - это язык программирования, который используется для создания интерактивных веб-сайтов. Он дает возможность делать сайты динамическими, добавляя различные функции и эффекты, которые делают взаимодействие с сайтом более удобным и интересным для пользователя.</p>
-            <p>Вы можете использовать JavaScript для создания игр, форм для отправки данных, анимаций, реакции на действия пользователя и многое другое.</p>
-            <p>Но иногда JS может быть неэффективен для определенных задач, таких как обработка больших объемов данных или высоконагруженные вычисления, в этом случае могут быть предпочтительнее другие языки программирования, такие как Python или Java.</p>
+            <h2>О JavaScript</h2>
+            <p>JavaScript - это язык программирования, который широко используется для создания интерактивных веб-страниц. С его помощью можно добавлять динамическое поведение на сайты, взаимодействовать с пользователями и многое другое.</p>
+            <p>JavaScript может быть использован для создания различных приложений, веб-игр, веб-сервисов, а также для разработки серверных приложений и многое другое.</p>
+            <p>Однако, JavaScript не подходит для написания сложных вычислительных приложений или системного программирования.</p>
         </section>
-
-        <section id="demo">
-            <h2>Демонстрация</h2>
-            <div class="demo-item">
-                <h3>Практическая 2, задание 3</h3>
-                <button onclick="showTaskOne()">Показать задание</button>
-                <div id="taskOne"></div>
-            </div>
-            <div class="demo-item">
-                <h3>Практическая 1, задание 4</h3>
-                <button onclick="showTaskTwo()">Показать задание</button>
-                <div id="taskTwo"></div>
-            </div>
+        <section id="demo-tasks">
+            <h2>Демонстрация задач</h2>
+            <button onclick="executeTask(1)">Практическая 2, задание 3</button>
+            <button onclick="executeTask(2)">Практическая 1, задание 4</button>
+            <div id="task-output"></div>
         </section>
-
-        <section id="test">
-            <h2>Тест по JavaScript</h2>
-            <button onclick="startTest()">Начать тест</button>
-            <div id="testResults"></div>
+        <section id="quiz">
+            <h2>Тест</h2>
+            <form id="quiz-form" onsubmit="return false;">
+                <!-- Здесь будут вопросы -->
+            </form>
+            <button onclick="submitQuiz()">Завершить тест</button>
+            <div id="quiz-results"></div>
         </section>
-
-        <button id="fullscreenBtn" onclick="toggleFullscreen()">Заставка на весь экран</button>
-        <div id="fullscreenOverlay">
-            <div class="overlay-content">
-                <p>Сегодняшняя дата: <span id="currentDate"></span></p>
-                <p>Привет, <span id="userName"></span>!</p>
-                <p>Нажмите где угодно, чтобы закрыть заставку.</p>
-            </div>
-        </div>
     </main>
-
+    <footer>
+        <p>Сайт разработан с использованием HTML, CSS и JavaScript</p>
+    </footer>
     <script src="scripts.js"></script>
 </body>
 </html>
