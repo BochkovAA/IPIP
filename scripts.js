@@ -18,18 +18,17 @@ function runTask1() {
 function runTask2() {
     let array = [5, 10, 15, 20, 25, 30, 35, 40];
     let container = document.getElementById('array-container');
-    let arrayElementsContainer = document.createElement('div');
-    arrayElementsContainer.id = 'array-elements-container';
-
+    
+    // Очистить контейнер перед добавлением новых элементов
+    container.innerHTML = '';
+    
     array.forEach((item, index) => {
         let div = document.createElement('div');
         div.className = 'item';
         div.textContent = `Элемент ${index + 1}: ${item}`;
         div.setAttribute('data-length', `Длина массива: ${array.length}`);
-        arrayElementsContainer.appendChild(div);
+        container.appendChild(div);
     });
-
-    container.insertAdjacentElement('afterend', arrayElementsContainer);
 }
 
 // Функция запуска теста
