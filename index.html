@@ -63,9 +63,7 @@ do {
         <div id="task2-demo" class="task-demo">
             <h3>Задача 3 из второй практической</h3>
             <p>Узнайте длину вашего массива и выведите ее значение при наведении на любой элемент:</p>
-            <div id="array-container">
-                <!-- Элементы массива будут добавлены сюда -->
-            </div>
+            <div id="array-container"></div>
             <script>
                 let array = [5, 10, 15, 20, 25, 30, 35, 40];
                 let container = document.getElementById('array-container');
@@ -75,8 +73,8 @@ do {
                     div.className = 'array-item';
                     div.textContent = `Элемент ${index + 1}: ${item}`;
                     div.setAttribute('data-length', `Длина массива: ${array.length}`);
-                    container.appendChild(div);
-                });
+                    container.appendChild(div
+});
             </script>
             <button onclick="runTask2()">Запустить задачу</button>
         </div>
