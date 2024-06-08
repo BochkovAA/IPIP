@@ -67,26 +67,92 @@ array.forEach((item, index) => {
 
         <section id="quiz">
             <h2>Тест на знание JavaScript</h2>
-            <button onclick="startQuiz()">Начать тест</button>
-            <div id="quizResult"></div>
+            <button onclick="showQuiz()">Начать тест</button>
+            <form id="quizForm" style="display: none;">
+                <div class="quiz-question">
+                    <p>1. Какой из следующих вариантов является правильным синтаксисом для создания функции в JavaScript?</p>
+                    <label><input type="radio" name="question1" value="a"> function = myFunction()</label><br>
+                    <label><input type="radio" name="question1" value="b"> function myFunction()</label><br>
+                    <label><input type="radio" name="question1" value="c"> function:myFunction()</label><br>
+                    <label><input type="radio" name="question1" value="d"> function => myFunction()</label>
+                </div>
+                <div class="quiz-question">
+                    <p>2. Какой оператор используется для присваивания значения переменной в JavaScript?</p>
+                    <label><input type="radio" name="question2" value="a"> =</label><br>
+                    <label><input type="radio" name="question2" value="b"> ==</label><br>
+                    <label><input type="radio" name="question2" value="c"> ===</label><br>
+                    <label><input type="radio" name="question2" value="d"> :=</label>
+                </div>
+                <div class="quiz-question">
+                    <p>3. Что делает метод <code>Array.prototype.push()</code>?</p>
+                    <label><input type="radio" name="question3" value="a"> Удаляет последний элемент массива</label><br>
+                    <label><input type="radio" name="question3" value="b"> Добавляет элемент в начало массива</label><br>
+                    <label><input type="radio" name="question3" value="c"> Добавляет элемент в конец массива</label><br>
+                    <label><input type="radio" name="question3" value="d"> Удаляет элемент из начала массива</label>
+                </div>
+                <div class="quiz-question">
+                    <p>4. Какой метод используется для преобразования строки в число в JavaScript?</p>
+                    <label><input type="radio" name="question4" value="a"> parseInt()</label><br>
+                    <label><input type="radio" name="question4" value="b"> parseFloat()</label><br>
+                    <label><input type="radio" name="question4" value="c"> Number()</label><br>
+                    <label><input type="radio" name="question4" value="d"> Все перечисленные</label>
+                </div>
+                <div class="quiz-question">
+                    <p>5. Что такое JSON?</p>
+                    <label><input type="radio" name="question5" value="a"> Функция в JavaScript</label><br>
+                    <label><input type="radio" name="question5" value="b"> Формат обмена данными</label><br>
+                    <label><input type="radio" name="question5" value="c"> Библиотека JavaScript</label><br>
+                    <label><input type="radio" name="question5" value="d"> Метод HTTP-запроса</label>
+                </div>
+                <div class="quiz-question">
+                    <p>6. Какой метод используется для добавления элемента в начало массива?</p>
+                    <label><input type="radio" name="question6" value="a"> push()</label><br>
+                    <label><input type="radio" name="question6" value="b"> pop()</label><br>
+                    <label><input type="radio" name="question6" value="c"> unshift()</label><br>
+                    <label><input type="radio" name="question6" value="d"> shift()</label>
+                </div>
+                <div class="quiz-question">
+                    <p>7. Что выведет <code>console.log(typeof null);</code>?</p>
+                    <label><input type="radio" name="question7" value="a"> "object"</label><br>
+                    <label><input type="radio" name="question7" value="b"> "null"</label><br>
+                    <label><input type="radio" name="question7" value="c"> "undefined"</label><br>
+                    <label><input type="radio" name="question7" value="d"> "string"</label>
+                </div>
+                <div class="quiz-question">
+                    <p>8. Какой метод используется для объединения двух или более массивов?</p>
+                    <label><input type="radio" name="question8" value="a"> concat()</label><br>
+                    <label><input type="radio" name="question8" value="b"> merge()</label><br>
+                    <label><input type="radio" name="question8" value="c"> join()</label><br>
+                    <label><input type="radio" name="question8" value="d"> append()</label>
+                </div>
+                <div class="quiz-question">
+                    <p>9. Какой из перечисленных типов данных в JavaScript не является примитивом?</p>
+                    <label><input type="radio" name="question9" value="a"> number</label><br>
+                    <label><input type="radio" name="question9" value="b"> string</label><br>
+                    <label><input type="radio" name="question9" value="c"> boolean</label><br>
+                    <label><input type="radio" name="question9" value="d"> object</label>
+                </div>
+                <div class="quiz-question">
+                    <p>10. Какой результат будет у выражения <code>2 + '2'</code>?</p>
+                    <label><input type="radio" name="question10" value="a"> 4</label><br>
+                    <label><input type="radio" name="question10" value="b"> "4"</label><br>
+                    <label><input type="radio" name="question10" value="c"> "22"</label><br>
+                    <label><input type="radio" name="question10" value="d"> 22</label>
+                </div>
+                <button type="button" onclick="submitQuiz()">Отправить тест</button>
+            </form>
+            <div id="quizResult"></div> <!-- Контейнер для отображения результатов теста -->
         </section>
 
         <section id="greeting">
             <h2>Приветствие</h2>
             <button onclick="showGreeting()">Приветствие</button>
         </section>
-
-        <section id="splash" class="hidden">
-            <div class="splash-content">
-                <h2>Привет, <span id="userName"></span>!</h2>
-                <p>Сегодня: <span id="currentDate"></span></p>
-            </div>
-        </section>
     </main>
 
-    <footer>
-        <p>&copy; 2024 Изучаем JavaScript</p>
-    </footer>
+    <div id="greeting-screen" onclick="hideGreeting()">
+        <p id="greeting-text"></p>
+    </div>
 
     <script src="scripts.js"></script>
 </body>
