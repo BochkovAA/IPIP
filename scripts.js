@@ -1,4 +1,4 @@
-// Сохранение имени пользователя в LocalStorage
+// Сохранение в LocalStorage
 function askUserName() {
     let userName = localStorage.getItem('userName');
     if (!userName) {
@@ -84,7 +84,7 @@ function submitQuiz() {
     document.getElementById('quizResult').innerHTML = results;
 }
 
-// Приветственное сообщение с текущей датой и именем пользователя
+// Приветствие
 function showGreeting() {
     const userName = localStorage.getItem('userName') || 'Гость';
     const currentDate = new Date().toLocaleDateString('ru-RU', {
@@ -98,7 +98,7 @@ function showGreeting() {
     document.getElementById('greeting-screen').style.display = 'flex';
 }
 
-// Скрыть приветственное сообщение
+// Скрыть приветствие
 function hideGreeting() {
     document.getElementById('greeting-screen').style.display = 'none';
 }
