@@ -42,3 +42,25 @@ button {
 .splash-content p {
     font-size: 18px;
 }
+
+#array-elements-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.item {
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.item:hover::after {
+    content: attr(data-length);
+    display: inline-block;
+    margin-left: 10px;
+    font-weight: bold;
+    color: red;
+}
