@@ -23,8 +23,42 @@
 
         <section id="tasks">
             <h2>Практические задания</h2>
-            <button onclick="runTask(1)">Практическая 1, задание 4</button>
-            <button onclick="runTask(2)">Практическая 2, задание 3</button>
+            <div id="task1">
+                <h3>Практическая 1, задание 4</h3>
+                <pre>
+<code>
+let number;
+do {
+    number = prompt('Введите любое число больше 5:');
+    if (number === null) {  
+        alert('Вы отменили ввод');
+        break;
+    } else if (!isNaN(number) && +number > 5) {
+        alert('Поздравляем! Вы ввели число больше 5.');
+    } else {
+        alert('Ошибка! Введите число больше 5.');
+    }
+} while (number !== null && (+number <= 5 || isNaN(number)));
+</code>
+                </pre>
+            </div>
+            <div id="task2">
+                <h3>Практическая 2, задание 3</h3>
+                <pre>
+<code>
+let array = [5, 10, 15, 20, 25, 30, 35, 40];
+let container = document.getElementById('array-container');
+
+array.forEach((item, index) => {
+    let div = document.createElement('div');
+    div.className = 'item';
+    div.textContent = `Элемент ${index + 1}: ${item}`;
+    div.setAttribute('data-length', `Длина массива: ${array.length}`);
+    container.appendChild(div);
+});
+</code>
+                </pre>
+            </div>
         </section>
 
         <section id="quiz">
