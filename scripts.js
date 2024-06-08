@@ -1,128 +1,145 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Обработка клика по кнопкам в меню
-    document.getElementById('show-task1').addEventListener('click', showTask1);
-    document.getElementById('show-task2').addEventListener('click', showTask2);
-    document.getElementById('show-test').addEventListener('click', showTest);
-    document.getElementById('show-welcome-screen').addEventListener('click', showWelcomeScreen);
-
-    // Инициализация теста
-    document.getElementById('start-quiz').addEventListener('click', startQuiz);
-
-    // Получение имени пользователя
-    let userName = localStorage.getItem('userName') || prompt('Как вас зовут?');
+// Сохранение имени пользователя в localStorage
+function saveName() {
+    let userName = prompt('Пожалуйста, представьтесь:');
     if (userName) {
         localStorage.setItem('userName', userName);
-        document.getElementById('welcome-message').innerText = `Привет, ${userName}!`;
+        document.getElementById('userName').textContent = userName;
     }
-
-    // Текущая дата
-    let currentDate = new Date();
-    document.getElementById('current-date').innerText = currentDate.toLocaleDateString('ru-RU', { year: 'numeric', month: 'long', day: 'numeric' });
-});
-
-function showTask1() {
-    alert('Сейчас будет выполнена задача 4 из первой практической работы.');
-    runTask1();
 }
 
-function showTask2() {
-    alert('Сейчас будет выполнена задача 3 из второй практической работы.');
-    runTask2();
+// Показать первое задание
+function showTaskOne() {
+    document.getElementById('taskOne').textContent = `
+        Практическая 2, задание 3:
+        <!DOCTYPE html>
+        <html lang="ru">
+        <head>
+            <meta charset="UTF-8">
+            <title>Длина массива</title>
+            <style>
+                .item:hover::after {
+                    content: attr(data-length);
+                    display: inline-block;
+                    margin-left: 10px;
+                    font-weight: bold;
+                    color: red;
+                }
+            </style>
+        </head>
+        <body>
+            <div id="array-container">
+                <!-- Элементы массива будут добавлены сюда -->
+            </div>
+            <script>
+                let array = [5, 10, 15, 20, 25, 30, 35, 40];
+                let container = document.getElementById('array-container');
+
+                array.forEach((item, index) => {
+                    let div = document.createElement('div');
+                    div.className = 'item';
+                    div.textContent = \`Элемент \${index + 1}: \${item}\`;
+                    div.setAttribute('data-length', \`Длина массива: \${array.length}\`);
+                    container.appendChild(div);
+                });
+            </script>
+        </body>
+        </html>
+    `;
 }
 
-function showTest() {
-    document.getElementById('test').scrollIntoView({ behavior: 'smooth' });
+// Показать второе задание
+function showTaskTwo() {
+    document.getElementById('taskTwo').textContent = `
+        Практическая 1, задание 4:
+        let number;
+        do {
+            number = prompt('Введите любое число больше 5:');
+            if (number === null) {  
+                alert('Вы отменили ввод');
+                break;
+            } else if (!isNaN(number) && +number > 5) {
+                alert('Поздравляем! Вы ввели число больше 5.');
+            } else {
+                alert('Ошибка! Введите число больше 5.');
+            }
+        } while (number !== null && (+number <= 5 || isNaN(number)));
+    `;
 }
 
-function showWelcomeScreen() {
-    let welcomeScreen = document.getElementById('welcome-screen');
-    welcomeScreen.style.display = 'flex';
-    welcomeScreen.addEventListener('click', () => {
-        welcomeScreen.style.display = 'none';
-    });
-}
-
-function runTask1() {
-    let number;
-    do {
-        number = prompt('Введите любое число больше 5:');
-        if (number === null) {
-            alert('Вы отменили ввод');
-            break;
-        } else if (!isNaN(number) && +number > 5) {
-            alert('Поздравляем! Вы ввели число больше 5.');
-        } else {
-            alert('Ошибка! Введите число больше 5.');
-        }
-    } while (number !== null && (+number <= 5 || isNaN(number)));
-}
-
-function runTask2() {
-    // Создаем массив
-    let array = [5, 10, 15, 20, 25, 30, 35, 40];
-    let container = document.getElementById('array-container');
-
-    // Очищаем контейнер перед добавлением новых элементов
-    container.innerHTML = '';
-
-    // Создаем и добавляем элементы в контейнер
-    array.forEach((item, index) => {
-        let div = document.createElement('div');
-        div.className = 'array-item';
-        div.textContent = `Элемент ${index + 1}: ${item}`;
-        div.setAttribute('data-length', `Длина массива: ${array.length}`);
-        container.appendChild(div);
-    });
-}
-
-function startQuiz() {
-    // Вопросы для теста
+// Генерация теста
+function startTest() {
     const questions = [
-        { question: 'Какой метод используется для вывода сообщений в консоль?', options: ['console.print()', 'console.log()', 'print()'], correctAnswer: 1 },
-        { question: 'Как объявить переменную в JavaScript?', options: ['let', 'var', 'const', 'Все ответы верны'], correctAnswer: 3 },
-        { question: 'Что такое DOM?', options: ['Документальный объектный модель', 'Документ Объект Модель', 'Data Object Model'], correctAnswer: 1 },
-        { question: 'Какой оператор используется для присваивания значения?', options: ['=', '==', '==='], correctAnswer: 0 },
-        { question: 'Какой метод используется для преобразования строки в число?', options: ['parseInt()', 'Number()', 'Все ответы верны'], correctAnswer: 2 },
-        { question: 'Как вызвать функцию в JavaScript?', options: ['function()', 'func()', 'fn()'], correctAnswer: 1 },
-        { question: 'Как добавить комментарий в JavaScript?', options: ['// комментарий', '<!-- комментарий -->', '/* комментарий */'], correctAnswer: 0 },
-        { question: 'Какой оператор используется для сложения строк?', options: ['+', '&', 'concat()'], correctAnswer: 0 },
-        { question: 'Как получить текущую дату и время в JavaScript?', options: ['new Date()', 'Date.now()', 'Date.today()'], correctAnswer: 0 },
-        { question: 'Как создать пустой массив?', options: ['[]', '{}', 'new Array()'], correctAnswer: 0 }
+        "Что такое JavaScript?",
+        "Что делает оператор '==' в JavaScript?",
+        "Чем отличается 'let' от 'var' в JavaScript?",
+        "Что такое DOM?",
+        "Что такое массив в JavaScript?",
+        "Что такое цикл 'for'?",
+        "Что такое функция в JavaScript?",
+        "Что такое метод 'addEventListener'?",
+        "Что такое условный оператор 'if-else'?",
+        "Что такое объект в JavaScript?"
+    ];
+    const answers = [
+        "Язык программирования для создания интерактивных веб-сайтов.",
+        "Проверяет равенство без учета типа.",
+        "Объявление переменной с областью видимости в блоке кода.",
+        "Объектная модель документа - структура веб-страницы, доступная через JavaScript.",
+        "Упорядоченная коллекция элементов данных.",
+        "Циклическая конструкция, позволяющая повторять код заданное количество раз.",
+        "Фрагмент кода, предназначенный для выполнения определенной задачи.",
+        "Метод для добавления обработчика событий к элементу DOM.",
+        "Конструкция, выполняющая различный код в зависимости от условия.",
+        "Коллекция данных, содержащая пары ключ-значение."
     ];
 
-    let quizContainer = document.getElementById('quiz-container');
-    let resultContainer = document.getElementById('quiz-result');
-    quizContainer.innerHTML = '';
-    resultContainer.innerHTML = '';
+    let score = 0;
+    let userAnswers = [];
 
-    questions.forEach((q, index) => {
-        let questionDiv = document.createElement('div');
-        questionDiv.className = 'quiz-question';
-        questionDiv.innerHTML = `<p>${index + 1}. ${q.question}</p>`;
+    for (let i = 0; i < questions.length; i++) {
+        let answer = prompt(questions[i]);
+        userAnswers.push(answer);
+        if (answer && answer.toLowerCase() === answers[i].toLowerCase()) {
+            score++;
+        }
+    }
 
-        q.options.forEach((option, i) => {
-            let optionLabel = document.createElement('label');
-            optionLabel.innerHTML = `<input type="radio" name="question${index}" value="${i}"> ${option}`;
-            questionDiv.appendChild(optionLabel);
-        });
+    let testResults = document.getElementById('testResults');
+    testResults.innerHTML = `<p>Вы ответили правильно на ${score} из ${questions.length} вопросов.</p>`;
 
-        quizContainer.appendChild(questionDiv);
-    });
-
-    let submitButton = document.createElement('button');
-    submitButton.textContent = 'Отправить ответы';
-    submitButton.onclick = () => {
-        let correctAnswers = 0;
-        questions.forEach((q, index) => {
-            let selectedOption = document.querySelector(`input[name="question${index}"]:checked`);
-            if (selectedOption && +selectedOption.value === q.correctAnswer) {
-                correctAnswers++;
-            }
-            let result = selectedOption ? (selectedOption.value == q.correctAnswer ? 'Верно' : 'Неверно') : 'Не выбрано';
-            resultContainer.innerHTML += `<p>${index + 1}. ${q.question} - ${result}</p>`;
-        });
-        resultContainer.innerHTML += `<p>Ваш результат: ${correctAnswers} из ${questions.length}</p>`;
-    };
-
-    quizContainer.appendChild(submitButton);
+    // Показать ответы пользователя
+    testResults.innerHTML += "<p>Ваши ответы:</p>";
+    for (let i = 0; i < questions.length; i++) {
+        testResults.innerHTML += `<p>${questions[i]}<br>${userAnswers[i] === null ? 'Пользователь не ответил' : userAnswers[i]}</p>`;
+    }
 }
+
+// Включение/выключение полноэкранного режима
+function toggleFullscreen() {
+    let overlay = document.getElementById('fullscreenOverlay');
+    overlay.classList.toggle('active');
+}
+
+// Обновление текущей даты
+function updateDate() {
+    let currentDateElement = document.getElementById('currentDate');
+    let currentDate = new Date();
+    currentDateElement.textContent = currentDate.toLocaleDateString();
+}
+
+// Обновление имени пользователя из localStorage
+function updateUserName() {
+    let userName = localStorage.getItem('userName');
+    if (userName) {
+        document.getElementById('userName').textContent = userName;
+    }
+}
+
+// Обновление данных при загрузке страницы
+window.onload = function () {
+    updateDate();
+    updateUserName();
+}
+
+// Закрытие полноэкранной заставки при клике
+document.getElementById('fullscreenOverlay').addEventListener('click', toggleFullscreen);
