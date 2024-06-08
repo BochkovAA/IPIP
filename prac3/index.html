@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <title>Учебный проект: JavaScript для начинающих</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Стили для элементов массива */
+        .array-item:hover::after {
+            content: attr(data-length);
+            display: inline-block;
+            margin-left: 10px;
+            font-weight: bold;
+            color: red;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -34,8 +44,8 @@
         <h2>Демонстрация задач</h2>
         <div id="task1-demo" class="task-demo">
             <h3>Задача 4 из первой практической</h3>
-            <p>Описание задачи:</p>
-            <pre><code> // Запросить у пользователя число больше 5 и выдать сообщение.
+            <p>Запросить у пользователя число больше 5 и выдать сообщение:</p>
+            <pre><code> 
 let number;
 do {
     number = prompt('Введите любое число больше 5:');
@@ -52,13 +62,8 @@ do {
         </div>
         <div id="task2-demo" class="task-demo">
             <h3>Задача 3 из второй практической</h3>
-            <p>Описание задачи:</p>
-            <pre><code> // Постоянно повторяющееся сообщение (вирусное сообщение)
-function showRepeatedMessage() {
-    while (true) {
-        alert("Это вирусное сообщение! Нажмите ОК чтобы продолжить.");
-    }
-}</code></pre>
+            <p>Узнайте длину вашего массива и выведите ее значение при наведении на любой элемент:</p>
+            <div id="array-container"></div>
             <button onclick="runTask2()">Запустить задачу</button>
         </div>
     </section>
