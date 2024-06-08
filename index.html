@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Учебный проект: JavaScript для начинающих</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>JavaScript для начинающих</h1>
+        <nav>
+            <button id="show-task1">Задача 4 из первой практической</button>
+            <button id="show-task2">Задача 3 из второй практической</button>
+            <button id="show-test">Тест по JavaScript</button>
+            <button id="show-welcome-screen">Приветствие</button>
+        </nav>
+    </header>
+
+    <section id="info">
+        <h2>Что такое JavaScript?</h2>
+        <p>JavaScript — это язык программирования, используемый для создания интерактивных элементов на веб-страницах. Он позволяет оживлять страницы, добавляя динамические возможности, такие как обновление контента, анимации и многое другое.</p>
+        <h3>Для чего используется JavaScript?</h3>
+        <ul>
+            <li>Создание интерактивных элементов на веб-страницах.</li>
+            <li>Разработка веб-приложений и игр.</li>
+            <li>Работа с браузерным API, например, для создания всплывающих окон или обработки событий пользователя.</li>
+            <li>Обмен данными с сервером без перезагрузки страницы (AJAX).</li>
+        </ul>
+        <h3>Когда JavaScript не пригодится?</h3>
+        <p>JavaScript не используется для создания статических страниц, а также для задач, требующих высокой производительности на уровне системы, таких как разработка операционных систем или работа с аппаратным обеспечением. Для таких задач лучше подходят языки, как C++ или Rust.</p>
+    </section>
+
+    <section id="tasks">
+        <h2>Демонстрация задач</h2>
+        <div id="task1-demo" class="task-demo">
+            <h3>Задача 4 из первой практической</h3>
+            <p>Описание задачи:</p>
+            <pre><code> // Запросить у пользователя число больше 5 и выдать сообщение.
+let number;
+do {
+    number = prompt('Введите любое число больше 5:');
+    if (number === null) {
+        alert('Вы отменили ввод');
+        break;
+    } else if (!isNaN(number) && +number > 5) {
+        alert('Поздравляем! Вы ввели число больше 5.');
+    } else {
+        alert('Ошибка! Введите число больше 5.');
+    }
+} while (number !== null && (+number <= 5 || isNaN(number)));</code></pre>
+            <button onclick="runTask1()">Запустить задачу</button>
+        </div>
+        <div id="task2-demo" class="task-demo">
+            <h3>Задача 3 из второй практической</h3>
+            <p>Описание задачи:</p>
+            <pre><code> // Постоянно повторяющееся сообщение (вирусное сообщение)
+function showRepeatedMessage() {
+    while (true) {
+        alert("Это вирусное сообщение! Нажмите ОК чтобы продолжить.");
+    }
+}</code></pre>
+            <button onclick="runTask2()">Запустить задачу</button>
+        </div>
+    </section>
+
+    <section id="test">
+        <h2>Тест по JavaScript</h2>
+        <div id="quiz-container"></div>
+        <button id="start-quiz">Начать тест</button>
+        <div id="quiz-result"></div>
+    </section>
+
+    <div id="welcome-screen" class="overlay">
+        <div class="overlay-content">
+            <h1 id="welcome-message"></h1>
+            <p id="current-date"></p>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
