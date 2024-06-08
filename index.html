@@ -3,39 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Изучение JavaScript</title>
+    <title>Изучаем JavaScript</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
         <h1>Добро пожаловать!</h1>
-        <p>Для начинающих изучать JavaScript</p>
+        <p>Давайте изучим JavaScript вместе!</p>
     </header>
+
     <main>
-        <section id="about-js">
+        <section id="about">
             <h2>О JavaScript</h2>
-            <p>JavaScript - это язык программирования, который широко используется для создания интерактивных веб-страниц. С его помощью можно добавлять динамическое поведение на сайты, взаимодействовать с пользователями и многое другое.</p>
-            <p>JavaScript может быть использован для создания различных приложений, веб-игр, веб-сервисов, а также для разработки серверных приложений и многое другое.</p>
-            <p>Однако, JavaScript не подходит для написания сложных вычислительных приложений или системного программирования.</p>
+            <p>JavaScript - это язык программирования, который широко используется для создания интерактивных веб-сайтов. Он позволяет добавлять динамическое поведение к веб-страницам.</p>
+            <p>Вы можете использовать JavaScript для валидации форм, создания анимаций, обработки событий и многое другое.</p>
+            <p>JavaScript также позволяет взаимодействовать с элементами HTML и CSS на странице, делая сайты более интересными и функциональными.</p>
+            <p>Однако, для создания сложных приложений, часто требуется знание других технологий и фреймворков.</p>
         </section>
-        <section id="demo-tasks">
-            <h2>Демонстрация задач</h2>
-            <button onclick="executeTask(1)">Практическая 2, задание 3</button>
-            <button onclick="executeTask(2)">Практическая 1, задание 4</button>
-            <div id="task-output"></div>
+
+        <section id="tasks">
+            <h2>Практические задания</h2>
+            <button onclick="runTask(1)">Практическая 1, задание 4</button>
+            <button onclick="runTask(2)">Практическая 2, задание 3</button>
         </section>
+
         <section id="quiz">
-            <h2>Тест</h2>
-            <form id="quiz-form" onsubmit="return false;">
-                <!-- Здесь будут вопросы -->
-            </form>
-            <button onclick="submitQuiz()">Завершить тест</button>
-            <div id="quiz-results"></div>
+            <h2>Тест на знание JavaScript</h2>
+            <button onclick="startQuiz()">Начать тест</button>
+            <div id="quizResult"></div>
+        </section>
+
+        <section id="splash" class="hidden">
+            <div class="splash-content">
+                <h2>Привет, <span id="userName"></span>!</h2>
+                <p>Сегодня: <span id="currentDate"></span></p>
+            </div>
         </section>
     </main>
+
     <footer>
-        <p>Сайт разработан с использованием HTML, CSS и JavaScript</p>
+        <p>&copy; 2024 Изучаем JavaScript</p>
     </footer>
+
     <script src="scripts.js"></script>
 </body>
 </html>
