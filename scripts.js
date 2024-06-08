@@ -51,15 +51,14 @@ function showGreeting() {
     let currentDate = new Date().toLocaleDateString('ru-RU');
     document.getElementById('currentDate').textContent = currentDate;
 
-    document.getElementById('splash').classList.remove('hidden');
-}
+    let splash = document.getElementById('splash');
+    splash.style.display = 'flex'; // Показываем заставку
 
-// Обработчик события для скрытия заставки при клике
-document.addEventListener('click', function(event) {
-    if (event.target.matches('#splash')) {
-        document.getElementById('splash').classList.add('hidden');
-    }
-});
+    // Убираем заставку при клике на неё
+    splash.addEventListener('click', function() {
+        splash.style.display = 'none';
+    }, { once: true }); // { once: true } убирает обработчик после первого срабатывания
+}
 
 // Сохранение имени пользователя в localStorage
 let userName = prompt('Представьтесь, пожалуйста:');
