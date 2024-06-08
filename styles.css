@@ -67,7 +67,7 @@ pre {
     height: 100%;
     background: url('background.jpg') no-repeat center center;
     background-size: cover;
-    display: flex;
+    display: none; /* Скрыто по умолчанию */
     justify-content: center;
     align-items: center;
     z-index: 10;
