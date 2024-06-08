@@ -60,8 +60,17 @@ function showGreeting() {
     }, { once: true }); // { once: true } убирает обработчик после первого срабатывания
 }
 
-// Сохранение имени пользователя в localStorage
-let userName = prompt('Представьтесь, пожалуйста:');
-if (userName) {
-    localStorage.setItem('userName', userName);
+// Проверка имени пользователя при загрузке страницы
+function checkUserName() {
+    let userName = localStorage.getItem('userName');
+    if (!userName) {
+        // Если имя пользователя не сохранено, запрашиваем его
+        userName = prompt('Представьтесь, пожалуйста:');
+        if (userName) {
+            localStorage.setItem('userName', userName);
+        }
+    }
 }
+
+// Вызываем проверку имени пользователя при загрузке страницы
+window.onload = checkUserName;
