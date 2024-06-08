@@ -27,6 +27,13 @@ button {
     cursor: pointer;
 }
 
+pre {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border: 1px solid #ddd;
+    overflow-x: auto;
+}
+
 .hidden {
     display: none;
 }
