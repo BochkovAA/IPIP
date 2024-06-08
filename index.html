@@ -63,7 +63,18 @@ do {
         <div id="task2-demo" class="task-demo">
             <h3>Задача 3 из второй практической</h3>
             <p>Узнайте длину вашего массива и выведите ее значение при наведении на любой элемент:</p>
-            <div id="array-container"></div>
+            <pre><code>
+                let array = [5, 10, 15, 20, 25, 30, 35, 40];
+                let container = document.getElementById('array-container');
+
+                array.forEach((item, index) => {
+                    let div = document.createElement('div');
+                    div.className = 'array-item';
+                    div.textContent = `Элемент ${index + 1}: ${item}`;
+                    div.setAttribute('data-length', `Длина массива: ${array.length}`);
+                    container.appendChild(div);
+                });
+            </code></pre>
             <button onclick="runTask2()">Запустить задачу</button>
         </div>
     </section>
@@ -83,5 +94,40 @@ do {
     </div>
 
     <script src="scripts.js"></script>
+
+    <script>
+        let array = [5, 10, 15, 20, 25, 30, 35, 40];
+        let container = document.getElementById('array-container');
+
+        array.forEach((item, index) => {
+            let div = document.createElement('div');
+            div.className = 'array-item';
+            div.textContent = `Элемент ${index + 1}: ${item}`;
+            div.setAttribute('data-length', `Длина массива: ${array.length}`);
+            container.appendChild(div);
+        });
+
+        function runTask1() {
+            // Код для выполнения задачи 1 из первой практической работы
+            let number;
+            do {
+                number = prompt('Введите любое число больше 5:');
+                if (number === null) {
+                    alert('Вы отменили ввод');
+                    break;
+                } else if (!isNaN(number) && +number > 5) {
+                    alert('Поздравляем! Вы ввели число больше 5.');
+                } else {
+                    alert('Ошибка! Введите число больше 5.');
+                }
+            } while (number !== null && (+number <= 5 || isNaN(number)));
+        }
+
+        function runTask2() {
+            // Код для выполнения задачи 2 из второй практической работы
+            let arrayLength = array.length;
+            alert(`Длина массива: ${arrayLength}`);
+        }
+    </script>
 </body>
 </html>
