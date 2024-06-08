@@ -58,15 +58,21 @@ function runTask1() {
 }
 
 function runTask2() {
-    // Запуск бесконечного цикла сообщения
-    function showRepeatedMessage() {
-        while (true) {
-            alert("Это вирусное сообщение! Нажмите ОК чтобы продолжить.");
-        }
-    }
+    // Создаем массив
+    let array = [5, 10, 15, 20, 25, 30, 35, 40];
+    let container = document.getElementById('array-container');
 
-    // Вызов функции с задержкой, чтобы не блокировать UI сразу
-    setTimeout(showRepeatedMessage, 100);
+    // Очищаем контейнер перед добавлением новых элементов
+    container.innerHTML = '';
+
+    // Создаем и добавляем элементы в контейнер
+    array.forEach((item, index) => {
+        let div = document.createElement('div');
+        div.className = 'array-item';
+        div.textContent = `Элемент ${index + 1}: ${item}`;
+        div.setAttribute('data-length', `Длина массива: ${array.length}`);
+        container.appendChild(div);
+    });
 }
 
 function startQuiz() {
